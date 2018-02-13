@@ -7,21 +7,21 @@ from checker import check_logged_in
 app = Flask(__name__)
 
 app.config['dbconfig'] = {'host': '127.0.0.1',
-				         'user': 'vsearch',
-				         'password': 'vsearchpasswd',
-				         'database': 'vsearchlogDB', }
+                          'user': 'vsearch',
+                          'password': 'vsearchpasswd',
+                          'database': 'vsearchlogDB', }
 
 
 @app.route('/login')
 def do_login():
-	session['logged_in'] = True
-	return 'You are now logged in'
+    session['logged_in'] = True
+    return 'You are now logged in'
 
 
 @app.route('/logout')
 def do_logout():
-	session.pop('logged_in')
-	return 'You are now logged out'
+    session.pop('logged_in')
+    return 'You are now logged out'
 
 
 def log_request(req, res):
@@ -65,25 +65,25 @@ def entry_page():
 @app.route('/viewlog')
 @check_logged_in
 def view_the_log():
-	try:
-		with UseDatabase(app.config['dbconfig']) as cursor:
-			_SQL = """select phrase, letters, ip, browser_string, results from log"""
-			cursor.execute(_SQL)
-			contents = cursor.fetchall()
-		titles = ('Phrase', 'Letters', 'Remote_addr', 'User_agent', 'Results')
-		return render_template('viewlog.html',
-								the_title = 'View Log',
-								the_row_titles = titles,
-								the_data = contents,)
-	except ConnectionError as err:
-		print('Is your database switched on? Error:', str(err))
-	except CredentialsError as err:
-		print('User-id/Password issues. Error:', str(err))
-	except SQLError as err:
-		print('Is your query correct? Error:', str(err))
-	except Exception as err:
-		print('Something went wrong:', str(err))
-	return 'Error'
+    try:
+        with UseDatabase(app.config['dbconfig']) as cursor:
+            _SQL = """select phrase, letters, ip, browser_string, results from log"""
+            cursor.execute(_SQL)
+            contents = cursor.fetchall()
+        titles = ('Phrase', 'Letters', 'Remote_addr', 'User_agent', 'Results')
+        return render_template('viewlog.html',
+                               the_title='View Log',
+                               the_row_titles=titles,
+                               the_data=contents,)
+    except ConnectionError as err:
+        print('Is your database switched on? Error:', str(err))
+    except CredentialsError as err:
+        print('User-id/Password issues. Error:', str(err))
+    except SQLError as err:
+        print('Is your query correct? Error:', str(err))
+    except Exception as err:
+        print('Something went wrong:', str(err))
+    return 'Error'
 
 
 app.secret_key = 'YouWillNeverGuessMySecretKey'
