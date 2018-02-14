@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, escape, session
-from vsearch import search4letters
 
 from DBcm import UseDatabase, ConnectionError, CredentialsError, SQLError
 from checker import check_logged_in
@@ -36,6 +35,11 @@ def log_request(req, res):
                               req.remote_addr,
                               req.user_agent.browser,
                               res, ))
+
+
+def search4letters(phrase, letters='aeiou'):
+    """Return a set of the 'letters' found in 'phrase'."""
+    return set(letters).intersection(set(phrase))
 
 
 @app.route('/search4', methods=['POST'])
