@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<p>You submitted the following data:</p>
+<table>
+	<tr><td>Website:</td><td>{{ the_siteurl }}</td></tr>
+	<tr><td>User:</td><td>{{ the_username }}</td></tr>
+</table>
+
+<p>When "{{ the_siteurl }}" is analyzed by "{{ the_username }}", the following results are returned:</p>
+<h3>{{ the_results }}</h3>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<form method='POST' action='/analyze'>
+	<table>
+		<p>Use this form to submit a website URL in shown format:</p>
+		<tr><td>URL:</td><td><input type="TEXT" name="siteurl" width="60" value="https://github.com/"></td></tr>
+		<tr><td>Your name:</td><td><input type="TEXT" name="username" value="Ivan"></td></tr>
+	</table>
+	<p>When you're ready, click this button:</p>
+	<p><input type="submit" value="Analyze"></p>
+</form>
+
+{% endblock %}

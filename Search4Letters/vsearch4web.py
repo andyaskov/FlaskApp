@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, escape, session
+from flask import Flask, render_template, request, session
 
-from DBcm import UseDatabase, ConnectionError, CredentialsError, SQLError
-from checker import check_logged_in
+from Search4Letters.DBcm import UseDatabase, ConnectionError, CredentialsError, SQLError
+from Search4Letters.checker import check_logged_in
 
 app = Flask(__name__)
 
