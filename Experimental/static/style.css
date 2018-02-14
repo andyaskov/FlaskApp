@@ -1,7 +1,7 @@
 body {
   font-family:      Verdana, Geneva, Arial, sans-serif;
   font-size:        medium;
-  background-color: #F0F4C3;
+  background-color: #CDDC39;
   margin-top:       5%;
   margin-bottom:    5%;
   margin-left:      10%;
@@ -48,7 +48,7 @@ td, th {
 
 table {
 font-size:          1em;
-background-color:   #CDDC39;
+background-color:   #F0F4C3;
 border:             1px solid #AFB42B;
 color:              #757575;
 padding:            5px 5px 2px;
