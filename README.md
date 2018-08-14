@@ -10,6 +10,6 @@ For viewing logs you must have special rights.
 If you have it, pls go to /viewlogs
 
 > ***the app is in design mode and its functionality would change soon, 
-after I have a good idea of what it should be useful for  :)***
+after I have a good idea of what it could be useful for  :)***
  >
  > ***Andrey Yaskov***
