@@ -1,8 +1,8 @@
 ### FlaskApp
 
-##### simple application on Python Flask can be used for finding specific letters in strings.
+##### simple application on Python Flask can be used to find specific letters in strings.
 
-it uses MySql database for storing the history of searches. 
+it uses MySql database for storing the search history. 
 It also has a mechanism for logging in/out
 
 for using it pls go to the page /login, then to the main page. 
